@@ -17,29 +17,28 @@ rl.question("QUAL O PRIMEIRO NÚMERO QUE VOCÊ DESEJA?: ", function(num1) {
 
     rl.question("QUAL A OPERAÇÃO DESEJADA? (+, -, *, /): ", function(operacao) {
 
-      let resultado = ""
+      let resultado;
 
       if (operacao === "+") {
-
-        console.log ('resultado: '(num1 + num2));
+        resultado = num1 + num2;
 
       } else if (operacao === "-") {
-
-        console.log ('resultado: '(num1 - num2));
+        resultado = num1 - num2;
 
       } else if (operacao === "*") {
-
-        console.log ('resultado: '(num1 * num2));
+        resultado = num1 * num2;
 
       } else if (operacao === "/") {
-
-        console.log ('resultado: '(num1 / num2));
+        resultado = num1 / num2;
 
       } else {
         console.log("Operação inválida!");
+        rl.close();
+        return;
       }
-      console.log ("resultado: ", resultado)
-              rl.close();
+
+      console.log("Resultado:", resultado);
+      rl.close();
     });
 
   });
