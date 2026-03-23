@@ -17,6 +17,7 @@ rl.question("QUAL O PRIMEIRO NÚMERO QUE VOCÊ DESEJA?: ", function(num1) {
 
     rl.question("QUAL A OPERAÇÃO DESEJADA? (+, -, *, /): ", function(operacao) {
 
+      let resultado = ""
 
       if (operacao === "+") {
 
@@ -36,13 +37,9 @@ rl.question("QUAL O PRIMEIRO NÚMERO QUE VOCÊ DESEJA?: ", function(num1) {
 
       } else {
         console.log("Operação inválida!");
-        rl.close();
-        return;
       }
-
-      console.log("Resultado:", resultado);
-      rl.close();
-
+      console.log ("resultado: ", resultado)
+              rl.close();
     });
 
   });
