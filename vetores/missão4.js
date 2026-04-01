@@ -2,10 +2,11 @@ const prompt = require('prompt-sync')();
 
 const alunos = [];
 const notas = [];
+let opção = 0;
 
-while (opção !== '3'){
+while (opção !== 3 ){
 
-console.log('\n==========MENU========')
+console.log('==========MENU========')
 console.log('1.Cadastrar')
 console.log('2.Listar')
 console.log('3.sair')
@@ -19,7 +20,7 @@ if (opção == 1){
         alunos.push(nome);
         notas.push(nota);
     }
- else if (opcao == 2) {
+ else if (opção == 2) {
 
         for (let i = 0; i < notas.length; i++) {
             if (notas[i] >= 7) {
@@ -29,7 +30,8 @@ if (opção == 1){
             }
         }
 
-    } else if (opcao == 3) {
-        console.log("Saindo...");
-    }
+    } else if (opção == 3) {
+          console.log("Saindo...");
+         break
+        }
 }
