@@ -131,7 +131,7 @@ if (opcao == 4) {
             console.log(`Setor: ${setor[i]}`);
             console.log(`Prazo: ${prazo[i]} dias`);
 
-            // prioridade
+    
             if (prazo[i] <= 2) {
                 console.log('Prioridade: Urgente');
             } else if (prazo[i] <= 5) {
