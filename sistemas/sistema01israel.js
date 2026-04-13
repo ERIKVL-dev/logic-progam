@@ -8,13 +8,13 @@ let opcao = 0;
 
 while (opcao !== 5) {
     console.log('\n------------MENU------------');
-    console.log('1. CADASTRAR PEDIDO');
-    console.log('2. LISTAR PEDIDOS');
-    console.log('3. RESUMO GERENCIAL');
-    console.log('4. BUSCAR PEDIDO');
-    console.log('5. SAIR');
+    console.log('1. Cadastrar pedido');
+    console.log('2. Listar pedido');
+    console.log('3. Resumo gerencial');
+    console.log('4. Buscar pedido');
+    console.log('5. Sair');
 
-    opcao = Number(prompt('SELECIONE UMA OPÇÃO: '));
+    opcao = Number(prompt('Selecione uma opção: '));
 
 // CADASTRO //
 
@@ -62,10 +62,96 @@ while (opcao !== 5) {
         }
     }
 
-     if (opcao == 3){
-        // mostrar  maior pdd, qntt de pedd , setor top, itens, e urgente
-        console.log(`Maior pedido: ${produto[i]} \n tendo a quantidade pedida${quantidade[i].max} `)
+// RESUMO GERENCIAL //
+
+if (opcao == 3) {
+
+    let totalPedidos = produto.length;
+    let totalItens = 0;
+    let urgentes = 0;
+
+    let maiorQtd = 0;
+    let maiorPedido = '';
+
+    let setoresCount = {};
+
+    for (let i = 0; i < produto.length; i++) {
+
+        totalItens += quantidade[i];
+
+        
+        if (prazo[i] <= 2) {
+            urgentes++;
+        }
+
+        if (quantidade[i] > maiorQtd) {
+            maiorQtd = quantidade[i];
+            maiorPedido = produto[i];
+        }
+       
+        if (setoresCount[setor[i]]) {
+            setoresCount[setor[i]]++;
+        } else {
+            setoresCount[setor[i]] = 1;
+        }
     }
+    
+    let setorTop = '';
+    let maiorSetor = 0;
+
+    for (let s in setoresCount) {
+        if (setoresCount[s] > maiorSetor) {
+            maiorSetor = setoresCount[s];
+            setorTop = s;
+        }
+    }
+
+    console.log('\n--- RESUMO GERENCIAL ---');
+    console.log(`Pedidos: ${totalPedidos}`);
+    console.log(`Itens: ${totalItens}`);
+    console.log(`Urgentes: ${urgentes}`);
+    console.log(`Setor Top: ${setorTop}`);
+    console.log(`Maior Pedido: ${maiorPedido} - ${maiorQtd}`);
+}
+
+// BUSCAR PEDIDO //
+
+if (opcao == 4) {
+
+    let busca = prompt('Digite o nome do produto: ');
+    let encontrado = false;
+
+    for (let i = 0; i < produto.length; i++) {
+
+        if (produto[i].toLowerCase() === busca.toLowerCase()) {
+
+            console.log('\n--- PEDIDO ENCONTRADO ---');
+            console.log(`Produto: ${produto[i]}`);
+            console.log(`Quantidade: ${quantidade[i]}`);
+            console.log(`Setor: ${setor[i]}`);
+            console.log(`Prazo: ${prazo[i]} dias`);
+
+            // prioridade
+            if (prazo[i] <= 2) {
+                console.log('Prioridade: Urgente');
+            } else if (prazo[i] <= 5) {
+                console.log('Prioridade: Alta');
+            } else if (prazo[i] <= 10) {
+                console.log('Prioridade: Média');
+            } else {
+                console.log('Prioridade: Baixa');
+            }
+
+            encontrado = true;
+            break; 
+        }
+    }
+
+    if (!encontrado) {
+        console.log(' Pedido não encontrado!');
+    }
+}
+
 
 // SAIR DO SISTEMA // 
     else if (opcao === 5) {
