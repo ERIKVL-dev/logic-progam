@@ -39,6 +39,7 @@ while (opcao !== 0){
         case 3:
                 console.log (`Divisão dos valores: ${soma/numeros.length.toFixed(2)}`);
                     break;
+                    
         case 4:
 
         let maior = numeros[0]
