@@ -26,3 +26,4 @@ const numero = parseInt(prompt("Digite um número: "));
 
 const resultado = Primo(numero);
 Mresultado(numero, resultado);
+}
