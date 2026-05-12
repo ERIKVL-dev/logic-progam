@@ -12,11 +12,11 @@ int main() {
 
 	int opcao;
 
-	printf("Digite o numero 1: \n");
-	scanf("%d ", &num1 );
+	printf("Digite o numero 1:\n");
+	scanf("%f", &num1);
 
-	printf("Digite o numero 2: \n");
-	scanf("%d ", &num2 );
+	printf("Digite o numero 2:\n");
+	scanf("%f", &num2);
 
 	printf("1- somar\n");
 	printf("2- subtração\n");
@@ -28,27 +28,30 @@ int main() {
 
 
 	if (opcao = 1) {
-	float resultado1 = num1 + num2;
+	float resultado1 = num1+num2;
 
 	printf("Resultado: = %.2f\n", resultado1);
 
 	} else if (opcao = 2) {
 
-    float resultado2 = num1 - num2;
+    float resultado2 = num1-num2;
 
 	printf("Resultado: = %2.f\n", resultado2);
 
 	} else if (opcao = 3) {
-	float resultado3 = num1 * num2;
+	float resultado3 = num1*num2;
 
 	printf("Resultado: = %2.f\n", resultado3);
 
-	} else if (opcao = 4) {
-	float resultado4 = num1 / num2;
-
-	printf("Resultado: %2.f\n", resultado4);
-
-	} else {
+	} else if (opcao = 4){ 
+	    if (num1 >=0 && num2 >= 0){
+	          float resultado4 = num1/num2;
+            	printf("Resultado: %2.f\n", resultado4);
+	           }
+	    else{
+	            printf("O numero 0 não poder ser dividido! ");
+	        }
+	 } else if(opcao <= 0) {
 	printf("Operação inválida!");
 	}
 
