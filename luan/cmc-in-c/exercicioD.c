@@ -12,10 +12,13 @@ int main()
     
     soma += notas [i];
     float media = soma / 5;
+    if(notas[i] > maior){
+        float maior = notas[i]
+    }
     
     printf("Todas as notas = %f ", notas[i]);
     printf("Media: = %2.f ", media)
-    printf("Maior nota: = %f " ,);
+    printf("Maior nota: = %f " ,maior);
         if (media >= 6 ){
         printf("Aluno aprovado\n");
     }else if (media < 6){
